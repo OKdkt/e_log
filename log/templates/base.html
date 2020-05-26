@@ -1,0 +1,53 @@
+{% load static %}
+
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+	<div id="wrapper">
+        <!-- Navigation -->
+        <nav >
+          <div class="container">
+            <a  href="{% url 'log:index' %}">e Log</a>
+            <div>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">サインアップ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ログイン</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="nav-item {% block active_inquiry %}{% endblock %}">
+                  <a class="nav-link" href="#">お問い合せ</a>
+                </li>
+              </ul>
+            </div>
+              <hr>
+          </div>
+        </nav>
+
+        {% block header%}{% endblock %}
+
+        {% block contents%}{% endblock %}
+
+        <!-- Footer -->
+        <footer class="py-5 bg-black">
+          <div class="container">
+            <p class="m-0 text-center text-white small">Copyright &copy; Private Dairy 2019</p>
+          </div>
+          <!-- /.container -->
+        </footer>
+  	</div>
+  </body>
+
+</html>
